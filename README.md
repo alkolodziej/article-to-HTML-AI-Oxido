@@ -1,77 +1,16 @@
-# Article-to-HTML Converter
+# Article to HTML
 
-This project converts a plain-text article into structured HTML using OpenAI's API. It generates an HTML document with appropriate tags for text and placeholders for images, making the content easy to visualize and integrate into a website.
+Oxido recruitment exercise by Alan Kołodziej. Some commits use the Git author name `GamePL7`.
 
+A Node.js script that sends the included sample article to the OpenAI API and saves an HTML fragment and a preview based on `assets/szablon.html`.
 
-## Table of Contents
-- [Features](#features)
-- [Requirements](#requirements)
-- [Setup](#setup)
-- [Usage](#usage)
-- [Project Structure](#project-structure)
-- [Customization](#customization)
-- [Contributing](#contributing)
-- [License](#license)
+## Run locally
 
+Use Node.js 22 or later and an OpenAI API key with access to `gpt-4o`. Copy `.env.example` to `.env` and fill in `OPENAI_API_KEY`, or export it in your shell. Run from the repository root.
 
-## Features
-- **Automated Article Processing**: Converts plain text into well-structured HTML.
-- **Image Placeholders**: Includes `<img>` tags with placeholders for easy insertion of images.
-- **Readable and SEO-Friendly HTML**: Generates tags like `<h1>`, `<p>`, `<figure>`, and `<figcaption>`.
-- **Error Handling**: Captures API and file errors to ensure smooth processing.
-
-
-## Requirements
-- Node.js v14+ (with support for ES modules)
-- An OpenAI API key
-
-
-## Setup
-1. Clone the repository:
-```bash
-git clone https://github.com/alkolodziej/article-to-HTML-AI-Oxido.git
-cd article-to-HTML-AI-Oxido
-```
-2. Install dependencies:
-```bash
-npm install
-```
-3. Create .env file and add your OpenAI API key:
-```
-OPENAI_API_KEY=your_openai_api_key
+```sh
+npm ci
+npm start
 ```
 
-
-## Usage
-1. Place the text file you want to process in the data folder.
-2. Run the script:
-```bash
-node index.js
-```
-3. The processed HTML files will be saved in the output directory:
-`artykul.html`: Contains the article in HTML format.
-`podglad.html`: Contains a preview of the article within the HTML template.
-
-
-## Project Structure
-- `index.js`: Main script that orchestrates reading, processing, and saving the HTML.
-- `apiService.js`: Contains the OpenAI API request for converting the article.
-- `htmlGenerator.js`: Reads the HTML template and inserts the processed content.
-- `data/`: Contains the input article text file.
-- `output/`: Directory for the generated HTML files.
-- `assets/szablon.html`: HTML template for article preview.
-
-
-## Customization
-To change the behavior or HTML output, you can:
-- Change path to .txt file in `index.js`.
-- Modify API instructions in `apiService.js` for different HTML structures.
-- Edit the template in `assets/szablon.html` for custom styling.
-
-
-## Contributing
-Contributions are welcome! Please open an issue first to discuss what you would like to change or improve.
-
-
-## License
-This project is licensed under the MIT License.
+The repository includes an original example in `data/sample-article.txt`. Edit that file locally to try another article. The script writes `output/artykul.html` and `output/podglad.html`. Use input you can share with the API provider. Review the generated markup as text before rendering it.
